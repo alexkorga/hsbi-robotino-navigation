@@ -1,0 +1,7 @@
+verifyDepsBeforeRun: false
+enableGlobalVirtualStore: false
+
+supportedArchitectures:
+  cpu:
+    - x64
+    - arm64

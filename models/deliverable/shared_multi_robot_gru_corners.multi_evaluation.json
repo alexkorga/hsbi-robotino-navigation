@@ -1,0 +1,13 @@
+{
+  "model": "D:\\Projects\\HSBI\\AIR\\Alex\\models\\shared_multi_robot_gru_corners.zip",
+  "episodes": 100,
+  "robotsPerEpisode": 3,
+  "parallelWorlds": 28,
+  "fleetSuccessRate": 0.84,
+  "collisionRate": 0.04,
+  "environmentCollisionRate": 0.02,
+  "robotinoCollisionRate": 0.02,
+  "timeoutRate": 0.12,
+  "individualSuccessRate": 0.9433333333333334,
+  "meanFleetReward": 226.85105695784603
+}

@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robotino-fleet-manager"
+version = "0.2.0"
+description = "Free-space learning, simulation, and fleet control for Robotino AGVs"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.141.1",
+    "gymnasium>=1.1",
+    "numpy>=2.0",
+    "pettingzoo>=1.24",
+    "pyyaml>=6.0.3",
+    "stable-baselines3>=2.6",
+    "tensorboard>=2.18",
+    "tqdm>=4.67",
+    "torch>=2.5",
+    "uvicorn>=0.52.3",
+    "websockets>=16.0",
+    "opencv-python-headless>=5.0.0.93",
+]
+
+[tool.uv]
+package = true
+
+# PyPI's Windows/Linux torch wheel is CPU-only.  Use PyTorch's CUDA 13.0
+# index on the training platforms; macOS continues to resolve torch from PyPI.
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu130", marker = "sys_platform == 'win32' or sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+]

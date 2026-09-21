@@ -1,0 +1,350 @@
+schema_version: 1
+source: manual_visual_trace_annotated_factory_floor_2026-08-18
+draft: true
+
+# This is a deliberately clean, manually traced simulation layer in the same
+# metre-based coordinate frame as navigation-map.pgm. It is not derived from
+# every noisy occupancy pixel. Review and adjust it through the dashboard
+# layers before using it as authoritative collision geometry.
+
+# The southern annex below the thick red map marking is deliberately outside
+# this polygon. The marking itself is not a wall and is not listed below as an
+# obstacle. The western rooms/corridor and the upper strip behind the RASS
+# machines remain navigable. The narrow south-eastern recess is also usable.
+movement_area:
+  points:
+    - [-19.78, 6.35]
+    - [0.68, 6.35]
+    - [0.68, -5.70]
+    - [-0.45, -5.70]
+    - [-0.45, -4.19]
+    - [-9.35, -4.19]
+    - [-9.35, -3.65]
+    - [-19.78, -3.65]
+
+# All obstacle polygons are convex so the same definitions can later become
+# Box2D fixtures. MACHINE denotes equipment footprints; WALL denotes only
+# physical walls visible in the map.
+obstacles:
+  - id: wall_north
+    name: Northern building wall
+    category: WALL
+    points:
+      - [-19.90, 6.40]
+      - [0.85, 6.40]
+      - [0.85, 6.53]
+      - [-19.90, 6.53]
+
+  - id: wall_east
+    name: Eastern building wall
+    category: WALL
+    points:
+      - [0.76, -5.84]
+      - [0.90, -5.84]
+      - [0.90, 6.40]
+      - [0.76, 6.40]
+
+  - id: wall_west_upper
+    name: Upper western building wall
+    category: WALL
+    points:
+      - [-20.02, -0.18]
+      - [-19.88, -0.18]
+      - [-19.88, 6.40]
+      - [-20.02, 6.40]
+
+  - id: wall_upper_left_south
+    name: Southern wall of the upper western room
+    category: WALL
+    points:
+      - [-19.90, -0.26]
+      - [-9.50, -0.26]
+      - [-9.50, -0.12]
+      - [-19.90, -0.12]
+
+  - id: wall_west_corridor_south
+    name: Southern wall of the western corridor
+    category: WALL
+    points:
+      - [-19.80, -3.80]
+      - [-9.47, -3.80]
+      - [-9.47, -3.67]
+      - [-19.80, -3.67]
+
+  # The double doorway is the open segment at x ~= -9.5. These northern and
+  # southern wall stubs frame it without placing collision geometry across the
+  # opening itself.
+
+  - id: wall_double_door_north_jamb
+    name: Northern wall stub beside the double door
+    category: WALL
+    points:
+      - [-9.58, -0.66]
+      - [-9.45, -0.66]
+      - [-9.45, -0.12]
+      - [-9.58, -0.12]
+
+  - id: wall_southern_annex_west
+    name: Southern door stub and western wall of the excluded annex
+    category: WALL
+    points:
+      - [-9.55, -10.48]
+      - [-9.42, -10.48]
+      - [-9.42, -2.80]
+      - [-9.55, -2.80]
+
+  - id: wall_southern_annex_south
+    name: Southern wall of the excluded southern annex
+    category: WALL
+    points:
+      - [-9.55, -10.56]
+      - [-4.12, -10.56]
+      - [-4.12, -10.41]
+      - [-9.55, -10.41]
+
+  - id: wall_southern_annex_east
+    name: Eastern wall of the excluded southern annex
+    category: WALL
+    points:
+      - [-4.27, -10.56]
+      - [-4.12, -10.56]
+      - [-4.12, -4.19]
+      - [-4.27, -4.19]
+
+  - id: wall_southeast_main
+    name: Southern wall of the main factory room
+    category: WALL
+    points:
+      - [-4.76, -4.33]
+      - [-0.54, -4.33]
+      - [-0.54, -4.19]
+      - [-4.76, -4.19]
+
+  - id: wall_southeast_recess_west
+    name: Western wall of the south-eastern recess
+    category: WALL
+    points:
+      - [-0.61, -5.84]
+      - [-0.48, -5.84]
+      - [-0.48, -4.19]
+      - [-0.61, -4.19]
+
+  - id: wall_southeast_recess_south
+    name: Southern wall of the south-eastern recess
+    category: WALL
+    points:
+      - [-0.61, -5.92]
+      - [0.90, -5.92]
+      - [0.90, -5.77]
+      - [-0.61, -5.77]
+
+  # These footprints intentionally follow the simplified green training boxes
+  # rather than every small feature in the occupancy image. Additional movable
+  # objects will be introduced separately as variable training obstacles.
+
+  - id: machine_upper_west_bank
+    name: Simplified upper western machine bank
+    category: MACHINE
+    points:
+      - [-19.25, 4.71]
+      - [-15.28, 4.71]
+      - [-15.28, 5.71]
+      - [-19.25, 5.71]
+
+  - id: machine_west_upper_box
+    name: Simplified western upper box
+    category: MACHINE
+    points:
+      - [-16.15, 3.61]
+      - [-15.28, 3.61]
+      - [-15.28, 4.45]
+      - [-16.15, 4.45]
+
+  - id: machine_west_lower_box
+    name: Simplified western lower box
+    category: MACHINE
+    points:
+      - [-16.07, 2.30]
+      - [-15.31, 2.30]
+      - [-15.31, 3.33]
+      - [-16.07, 3.33]
+
+  - id: machine_west_post_1
+    name: Simplified western post 1
+    category: MACHINE
+    points:
+      - [-18.29, 2.26]
+      - [-18.07, 2.26]
+      - [-18.07, 2.88]
+      - [-18.29, 2.88]
+
+  - id: machine_west_post_2
+    name: Simplified western post 2
+    category: MACHINE
+    points:
+      - [-17.17, 2.30]
+      - [-16.89, 2.30]
+      - [-16.89, 2.88]
+      - [-17.17, 2.88]
+
+  - id: machine_top_body_1
+    name: Simplified northern machine body 1
+    category: MACHINE
+    points:
+      - [-13.62, 3.54]
+      - [-12.22, 3.54]
+      - [-12.22, 5.20]
+      - [-13.62, 5.20]
+
+  - id: machine_top_link_1
+    name: Simplified northern machine link 1
+    category: MACHINE
+    points:
+      - [-12.22, 4.40]
+      - [-11.05, 4.40]
+      - [-11.05, 5.24]
+      - [-12.22, 5.24]
+
+  - id: machine_top_body_2
+    name: Simplified northern machine body 2
+    category: MACHINE
+    points:
+      - [-11.06, 3.52]
+      - [-9.78, 3.52]
+      - [-9.78, 5.26]
+      - [-11.06, 5.26]
+
+  - id: machine_top_link_2
+    name: Simplified northern machine link 2
+    category: MACHINE
+    points:
+      - [-9.78, 4.40]
+      - [-8.59, 4.40]
+      - [-8.59, 5.22]
+      - [-9.78, 5.22]
+
+  - id: machine_top_body_3
+    name: Simplified northern machine body 3
+    category: MACHINE
+    points:
+      - [-8.60, 3.54]
+      - [-7.32, 3.54]
+      - [-7.32, 5.26]
+      - [-8.60, 5.26]
+
+  - id: machine_top_east_bank
+    name: Simplified north-eastern machine bank
+    category: MACHINE
+    points:
+      - [-7.32, 4.35]
+      - [-3.78, 4.35]
+      - [-3.78, 5.26]
+      - [-7.32, 5.26]
+
+  - id: machine_top_east_stem
+    name: Simplified north-eastern machine stem
+    category: MACHINE
+    points:
+      - [-6.12, 1.98]
+      - [-5.12, 1.98]
+      - [-5.12, 4.35]
+      - [-6.12, 4.35]
+
+  - id: machine_top_east_lower
+    name: Simplified north-eastern lower box
+    category: MACHINE
+    points:
+      - [-6.88, 0.64]
+      - [-5.08, 0.64]
+      - [-5.08, 1.98]
+      - [-6.88, 1.98]
+
+  - id: machine_asrs_body
+    name: Simplified ASRS body
+    category: MACHINE
+    points:
+      - [-3.90, 1.39]
+      - [-1.67, 1.39]
+      - [-1.67, 2.45]
+      - [-3.90, 2.45]
+
+  - id: machine_asrs_apron
+    name: Simplified ASRS apron
+    category: MACHINE
+    points:
+      - [-3.10, 1.16]
+      - [-2.13, 1.16]
+      - [-2.13, 1.40]
+      - [-3.10, 1.40]
+
+  # The central island consists of a solid core and four small edge structures.
+  # The gaps centred on each side remain open for the four machine waypoints.
+  # The narrow upper strips and small lower supports follow the measured edges
+  # of the physical island while remaining connected to its solid core.
+  - id: machine_central_core
+    name: Central island solid core
+    category: MACHINE
+    navigation_only: true
+    points:
+      - [-6.12, -2.32]
+      - [-5.03, -2.32]
+      - [-5.03, -1.45]
+      - [-6.12, -1.45]
+
+  - id: machine_central_corner_north_west
+    name: Central island north-west keep-out
+    category: MACHINE
+    navigation_only: true
+    points:
+      - [-6.26, -1.45]
+      - [-6.12, -1.45]
+      - [-6.12, -0.97]
+      - [-6.26, -0.97]
+
+  - id: machine_central_corner_north_east
+    name: Central island north-east keep-out
+    category: MACHINE
+    navigation_only: true
+    points:
+      - [-5.03, -1.45]
+      - [-4.89, -1.45]
+      - [-4.89, -0.97]
+      - [-5.03, -0.97]
+
+  - id: machine_central_corner_south_west
+    name: Central island south-west keep-out
+    category: MACHINE
+    navigation_only: true
+    points:
+      - [-6.37, -2.57]
+      - [-6.12, -2.57]
+      - [-6.12, -2.32]
+      - [-6.37, -2.32]
+
+  - id: machine_central_corner_south_east
+    name: Central island south-east keep-out
+    category: MACHINE
+    navigation_only: true
+    points:
+      - [-5.03, -2.57]
+      - [-4.78, -2.57]
+      - [-4.78, -2.32]
+      - [-5.03, -2.32]
+
+  - id: machine_rotated_box
+    name: Simplified rotated eastern box
+    category: MACHINE
+    points:
+      - [-1.49, -1.99]
+      - [-0.76, -2.44]
+      - [-0.28, -1.67]
+      - [-1.03, -1.21]
+
+  - id: machine_east_wall_bank
+    name: Simplified eastern wall-side machine bank
+    category: MACHINE
+    points:
+      - [-0.08, 2.32]
+      - [0.78, 2.32]
+      - [0.78, 6.46]
+      - [-0.08, 6.46]

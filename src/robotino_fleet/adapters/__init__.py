@@ -1,0 +1,1 @@
+"""Physical Robotino integration boundary."""

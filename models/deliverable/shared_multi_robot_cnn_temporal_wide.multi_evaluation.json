@@ -1,0 +1,13 @@
+{
+  "model": "D:\\Projects\\HSBI\\AIR\\Alex\\models\\shared_multi_robot_cnn_temporal_wide.zip",
+  "episodes": 100,
+  "robotsPerEpisode": 3,
+  "parallelWorlds": 24,
+  "fleetSuccessRate": 0.75,
+  "collisionRate": 0.01,
+  "environmentCollisionRate": 0.0,
+  "robotinoCollisionRate": 0.01,
+  "timeoutRate": 0.24,
+  "individualSuccessRate": 0.8933333333333333,
+  "meanFleetReward": 198.07400692580896
+}

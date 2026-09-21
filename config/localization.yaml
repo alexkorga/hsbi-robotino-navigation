@@ -1,0 +1,5 @@
+# Identity transform: /data/pose is assumed to use factory-map coordinates.
+map_from_indoor_tracking:
+  x_m: 0.0
+  y_m: 0.0
+  theta_rad: 0.0

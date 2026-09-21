@@ -1,0 +1,31 @@
+robotinos:
+  - ip: 172.21.20.90
+    api_port: 8154
+    fallback_port: 80
+    simulation_start: "1"
+    lidar: {x_m: 0.0, y_m: 0.0, yaw_rad: 0.0}
+  - ip: 172.21.21.90
+    api_port: 8154
+    fallback_port: 80
+    simulation_start: "2"
+    lidar: {x_m: 0.0, y_m: 0.0, yaw_rad: 0.0}
+  - ip: 172.21.22.90
+    api_port: 8154
+    fallback_port: 80
+    simulation_start: "3"
+    lidar: {x_m: 0.0, y_m: 0.0, yaw_rad: 0.0}
+  - ip: 172.21.23.90
+    api_port: 8154
+    fallback_port: 80
+    simulation_start: "13"
+    lidar: {x_m: 0.0, y_m: 0.0, yaw_rad: 0.0}
+  - ip: 172.21.24.90
+    api_port: 8154
+    fallback_port: 80
+    simulation_start: "18"
+    lidar: {x_m: 0.0, y_m: 0.0, yaw_rad: 0.0}
+  - ip: 172.21.25.90
+    api_port: 8154
+    fallback_port: 80
+    simulation_start: "20"
+    lidar: {x_m: 0.0, y_m: 0.0, yaw_rad: 0.0}

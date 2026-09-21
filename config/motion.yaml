@@ -1,0 +1,16 @@
+forward_max_mps: 0.6
+sideways_max_mps: 0.6
+rotation_max_rps: 0.75
+forward_acceleration_mps2: 0.2682
+sideways_acceleration_mps2: 0.2249
+# forward_deceleration_mps2: 0.4346  # Measured value.
+# sideways_deceleration_mps2: 0.4453  # Measured value.
+forward_deceleration_mps2: 0.35  # Conservative value for better model braking behavior.
+sideways_deceleration_mps2: 0.35  # Conservative value for better model braking behavior.
+rotation_acceleration_rps2: 0.9191
+rotation_deceleration_rps2: 2.6729
+forward_deadband_mps: 0.01
+sideways_deadband_mps: 0.01
+rotation_deadband_rps: 0.04
+command_delay_s: 0.2164
+odometry_noise_mps: 0.0001
